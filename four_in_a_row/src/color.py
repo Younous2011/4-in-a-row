@@ -1,16 +1,20 @@
 class Color:
-    def __init__(self, r:int, g:int, b:int):
+    def __init__(self, r:int, g:int, b:int, a:int = None):
         self.r = r
         self.g = g
         self.b = b
+        self.a = a
 
     def get(self) -> tuple:
-        return self.r, self.g, self.b
+        if self.a == None:
+            return self.r, self.g, self.b
+        else:
+            return self.r, self.g, self.b, self.a
 
 
-RED_DARK = Color(147, 27, 16)
+RED_DARK = Color(211, 47, 47)
 RED_LIGHT = Color(255, 100, 92)
-RED = Color(255, 0, 0)
+RED = Color(244,67,54)
 
 YELLOW_DARK = Color(222, 229, 16)
 YELLOW_LIGHT = Color(242, 246, 121)
@@ -23,3 +27,4 @@ BROWN = Color(143, 81, 0)
 BLACK = Color(0, 0, 0)
 
 WHITE = Color(255, 255, 255)
+WHITE_ALPHA = Color(255, 255, 255, 50)
