@@ -1,5 +1,8 @@
-from position import Position
-from color import Color
+from pygame import Surface
+from .position import Position
+from .color import Color
+
+import pygame.gfxdraw
 
 class Circle:
     """
@@ -22,3 +25,6 @@ class Circle:
 
     def get_radius(self) -> int:
         return self.radius
+
+    def draw(self, screen:Surface):
+        pygame.gfxdraw.filled_circle(screen, self.position.get_x(), self.position.get_y(), self.radius, self.color.get())

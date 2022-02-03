@@ -16,13 +16,15 @@ RED_DARK = Color(211, 47, 47)
 RED_LIGHT = Color(255, 100, 92)
 RED = Color(244,67,54)
 
-YELLOW_DARK = Color(222, 229, 16)
+YELLOW_DARK = Color(227, 233, 53)
 YELLOW_LIGHT = Color(242, 246, 121)
 YELLOW = Color(255, 255, 0)
 
 BROWN_DARK = Color(82, 46, 0)
 BROWN_LIGHT = Color(224, 127, 0)
 BROWN = Color(143, 81, 0)
+
+BLUE = Color(62, 104, 182)
 
 BLACK = Color(0, 0, 0)
 

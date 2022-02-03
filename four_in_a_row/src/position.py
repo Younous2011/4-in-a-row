@@ -9,3 +9,9 @@ class Position:
 
     def get_position(self):
         return self.x, self.y
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y

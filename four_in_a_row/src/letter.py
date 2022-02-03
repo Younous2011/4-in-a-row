@@ -6,17 +6,18 @@ from pygame.surface import Surface
 import pygame
 
 class Letter:
-    def __init__(self, position:Position, letter:str, size:int, color:Color, alpha:int = 255, font:str = None):
+    def __init__(self, position:Position, letter:str, size:int, color:Color, alpha:int = 255, font_str:str = None):
         self.letter = letter
         self.size = size
         self.color = color
         self.alpha = alpha
-        self.font = font
+        self.font_str = font_str
         self.position = position
+        self.make()
 
     def make(self):
         # Lecture de la police
-        self.font = pygame.font.Font(self.font, self.size)
+        self.font = pygame.font.Font(self.font_str, self.size)
 
         # Preparation du texte
         self.text = self.font.render(self.letter, True, self.color.get(), None)
@@ -33,3 +34,7 @@ class Letter:
 
     def draw(self, screen:Surface):
         screen.blit(self.text, self.textRect)
+
+    def update_letter(self, letter:str):
+        self.text = letter
+        self.make()

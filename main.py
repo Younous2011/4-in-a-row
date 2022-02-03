@@ -11,14 +11,17 @@ import pygame.gfxdraw
 
 pygame.init()
 
+from four_in_a_row.src.token import RED_TOKEN as red_token
+from four_in_a_row.src.square import BLUE_SQUARE as blue_square
+from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 
 # Set up the drawing window
 
 screen = pygame.display.set_mode([500, 500])
 
 l = Letter(Position(125, 125), "1", 200, BLACK)
-l.make()
 # Run until the user asks to quit
+list_position = [Position(0, 0)]*100
 
 running = True
 
@@ -36,21 +39,19 @@ while running:
     # Fill the background with white
 
     screen.fill((255, 255, 255))
+    blue_square.draw(screen)
 
+    x, y = pygame.mouse.get_pos()
+    new_pos = Position(x, y)
+    red_token.set_position(new_pos)  
 
-    # Draw a solid blue circle in the center
+    list_position.append(new_pos)
+    list_position = list_position[1:]
+    yellow_token.set_position(list_position[0])
+    yellow_token.draw(screen)
 
-    pygame.draw.circle(screen, RED.get(), (100, 250), 95)
-    pygame.draw.circle(screen, RED_DARK.get(), (100, 250), 75)
+    red_token.draw(screen)
 
-    pygame.gfxdraw.filled_circle(screen, 300, 250, 95, RED.get())
-    pygame.gfxdraw.filled_circle(screen, 300, 250, 75, RED_DARK.get())
-
-
-    # Flip the display
-
-    # pygame.display.flip()
-    l.draw(screen)
     pygame.display.update()
 
 # Done! Time to quit.
