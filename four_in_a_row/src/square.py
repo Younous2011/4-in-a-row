@@ -18,5 +18,5 @@ class Square:
         pygame.gfxdraw.box(screen, self.rect, BLUE.get())
         self.circle.draw(screen)
 
-BLUE_POSITION = Position(200, 200)
+BLUE_POSITION = Position(100, 100)
 BLUE_SQUARE = Square(BLUE_POSITION, 190)

@@ -19,8 +19,11 @@ from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 
 screen = pygame.display.set_mode([500, 500])
 
+surface = pygame.Surface((200, 200))
+
 screen.set_colorkey(GREEN_CHROMA_KEY.get(), 0)
 screen.set_alpha(150)
+surface.set_alpha(150)
 
 l = Letter(Position(125, 125), "1", 200, BLACK)
 # Run until the user asks to quit
@@ -54,7 +57,8 @@ while running:
     yellow_token.draw(screen)
 
     red_token.draw(screen)
-    blue_square.draw(screen)
+    blue_square.draw(surface)
+    screen.blit(surface, (0, 0))
     pygame.display.update()
 
 # Done! Time to quit.
