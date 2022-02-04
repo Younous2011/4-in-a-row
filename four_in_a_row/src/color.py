@@ -26,6 +26,8 @@ BROWN = Color(143, 81, 0)
 
 BLUE = Color(62, 104, 182)
 
+GREEN_CHROMA_KEY = Color(0, 177, 64)
+
 BLACK = Color(0, 0, 0)
 
 WHITE = Color(255, 255, 255)

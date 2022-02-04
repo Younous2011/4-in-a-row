@@ -1,6 +1,6 @@
 # Simple pygame program
 
-from four_in_a_row.src.color import BLACK, RED, RED_DARK, RED_LIGHT, WHITE, WHITE_ALPHA
+from four_in_a_row.src.color import BLACK, GREEN_CHROMA_KEY, RED, RED_DARK, RED_LIGHT, WHITE, WHITE_ALPHA
 from four_in_a_row.src.letter import Letter
 from four_in_a_row.src.position import Position
 
@@ -18,6 +18,9 @@ from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 # Set up the drawing window
 
 screen = pygame.display.set_mode([500, 500])
+
+screen.set_colorkey(GREEN_CHROMA_KEY.get(), 0)
+screen.set_alpha(150)
 
 l = Letter(Position(125, 125), "1", 200, BLACK)
 # Run until the user asks to quit
@@ -39,7 +42,7 @@ while running:
     # Fill the background with white
 
     screen.fill((255, 255, 255))
-    blue_square.draw(screen)
+    
 
     x, y = pygame.mouse.get_pos()
     new_pos = Position(x, y)
@@ -51,7 +54,7 @@ while running:
     yellow_token.draw(screen)
 
     red_token.draw(screen)
-
+    blue_square.draw(screen)
     pygame.display.update()
 
 # Done! Time to quit.
