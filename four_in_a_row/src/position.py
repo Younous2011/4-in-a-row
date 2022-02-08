@@ -15,3 +15,8 @@ class Position:
 
     def get_y(self):
         return self.y
+
+    def get_top_left_position(self, radius:int):
+        top_x = self.x - radius
+        top_y = self.y - radius
+        return top_x, top_y

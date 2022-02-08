@@ -49,16 +49,16 @@ while running:
 
     x, y = pygame.mouse.get_pos()
     new_pos = Position(x, y)
-    red_token.set_position(new_pos)  
+    red_token.set_position(new_pos)
 
     list_position.append(new_pos)
     list_position = list_position[1:]
-    yellow_token.set_position(list_position[0])
-    yellow_token.draw(screen)
 
-    red_token.draw(screen)
-    blue_square.draw(surface)
-    screen.blit(surface, (0, 0))
+    yellow_token.set_position(list_position[0])
+
+    red_token.blit_in(screen)
+    yellow_token.blit_in(screen)
+    blue_square.blit_in(screen)
     pygame.display.update()
 
 # Done! Time to quit.
