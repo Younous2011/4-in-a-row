@@ -11,7 +11,7 @@ class Square:
         self.position = position
         self.side = side
         self.rect = pygame.Rect(0, 0, side, side)
-        self.circle = Circle(side // 2 - 5, BLACK, position)
+        self.circle = Circle(int(side // 2 * 90/100), BLACK, Position(side // 2, side//2))
         # self.rect.center = position.get_position()
         self.draw()
 

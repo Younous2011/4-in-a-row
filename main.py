@@ -3,6 +3,8 @@
 from four_in_a_row.src.color import BLACK, GREEN_CHROMA_KEY, RED, RED_DARK, RED_LIGHT, WHITE, WHITE_ALPHA
 from four_in_a_row.src.letter import Letter
 from four_in_a_row.src.position import Position
+from four_in_a_row.src.square_factory import SquareFactory
+from four_in_a_row.src.grill import Grill
 
 # Import and initialize the pygame library
 
@@ -17,15 +19,21 @@ from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 
 # Set up the drawing window
 
-screen = pygame.display.set_mode([500, 500])
+nb_lignes = 6
+nb_colonnes = 7
+l_box = 150
 
-surface = pygame.Surface((200, 200))
+l_grill = l_box * 6 # 150 x 6 = 900
+L_grill = l_box * 7 # 200 x 7 = 1050
 
-screen.set_colorkey(GREEN_CHROMA_KEY.get(), 0)
-screen.set_alpha(150)
-surface.set_alpha(150)
+screen = pygame.display.set_mode([L_grill, l_grill])
 
-l = Letter(Position(125, 125), "1", 200, BLACK)
+p = Position(0, 0)
+g = Grill(l_box, nb_lignes, nb_colonnes, p)
+
+
+
+# l = Letter(Position(125, 125), "1", 200, BLACK)
 # Run until the user asks to quit
 list_position = [Position(0, 0)]*100
 
@@ -58,7 +66,8 @@ while running:
 
     red_token.blit_in(screen)
     yellow_token.blit_in(screen)
-    blue_square.blit_in(screen)
+
+    g.blit_in(screen)
     pygame.display.update()
 
 # Done! Time to quit.
