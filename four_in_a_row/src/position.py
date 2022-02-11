@@ -20,3 +20,6 @@ class Position:
         top_x = self.x - radius
         top_y = self.y - radius
         return top_x, top_y
+
+    def get_column(self, side:int) -> int:
+        return self.x // side

@@ -33,11 +33,12 @@ class Token:
         self.circle2.set_position(position)
         self.letter.set_position(position) """
 
+
     def blit_in(self, screen:Surface):
         screen.blit(self.surface, self.position.get_top_left_position(self.circle1.radius))
 
 
-RED_RAYON = 75
+RED_RAYON = 60
 
 
 
@@ -47,7 +48,7 @@ RED_MEDIUM_CIRCLE = Circle(int(RED_RAYON * 4 / 5), RED_DARK, RED_POSITION)
 RED_LETTER = Letter(RED_POSITION, "R", 100, RED)
 RED_TOKEN = Token(RED_POSITION, RED_LARGE_CIRCLE, RED_MEDIUM_CIRCLE, 1, RED_LETTER)
 
-YELLOW_RADIUS = 75
+YELLOW_RADIUS = 60
 
 YELLOW_POSITION = Position(YELLOW_RADIUS, YELLOW_RADIUS)
 YELLOW_LARGE_CIRCLE = Circle(YELLOW_RADIUS, YELLOW, YELLOW_POSITION)
