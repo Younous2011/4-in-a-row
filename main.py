@@ -13,6 +13,7 @@ pygame.init()
 # Import after init
 from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 from four_in_a_row.src.token_factory import TokenFactory
+from four_in_a_row.src.grill_token import GrillToken
 
 # Create all variables
 nb_lignes = 6
@@ -28,6 +29,7 @@ screen = pygame.display.set_mode([L_grill, l_grill + l_box])
 # Create variables with value Class
 p = Position(0, l_box)
 g = Grill(l_box, nb_lignes, nb_colonnes, p)
+gt = GrillToken(l_box, nb_lignes, nb_colonnes, p)
 
 
 
@@ -43,6 +45,11 @@ token4 = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "7")
 token5 = TokenFactory().create(2, l_box // 2, YELLOW, YELLOW_DARK, "8")
 token6 = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "B")
 token7 = TokenFactory().create(2, l_box // 2, YELLOW, YELLOW_DARK, "Y")
+
+gt.add_token(token3, 1, 1)
+gt.add_token(token2, 2, 0)
+gt.add_token(token5, 4,4)
+gt.add_token(token7, 5, 5)
 
 running = True
 
@@ -78,13 +85,14 @@ while running:
     yellow_token.set_position(Position().get_position_token(0, 6, l_box, L_grill))
 
     # blit_in tokens
-    token.blit_in(screen)
+    """ token.blit_in(screen)
     token2.blit_in(screen)
     token3.blit_in(screen)
     token4.blit_in(screen)
     token5.blit_in(screen)
     token6.blit_in(screen)
-    token7.blit_in(screen)
+    token7.blit_in(screen)"""
+    gt.blit_in(screen)
     g.blit_in(screen)
 
     # Update display-pygame

@@ -24,7 +24,7 @@ class Position:
     def get_column(self, side:int) -> int:
         return self.x // side
 
-    def get_position_token(self, i, j, l_box, L_grill):
+    def get_position_token(self, i:int, j:int, l_box:int, L_grill:int):
         x = l_box // 2 + l_box * j
-        y = L_grill - (l_box // 2) - l_box * i
+        y = L_grill - (l_box // 2) - l_box * i - l_box
         return Position(x, y)
