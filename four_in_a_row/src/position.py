@@ -1,5 +1,5 @@
 class Position:
-    def __init__(self, x:int, y:int):
+    def __init__(self, x:int = 0, y:int = 0):
         self.x = x
         self.y = y
 
@@ -23,3 +23,8 @@ class Position:
 
     def get_column(self, side:int) -> int:
         return self.x // side
+
+    def get_position_token(self, i, j, l_box, L_grill):
+        x = l_box // 2 + l_box * j
+        y = L_grill - (l_box // 2) - l_box * i
+        return Position(x, y)

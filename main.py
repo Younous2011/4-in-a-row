@@ -1,5 +1,5 @@
 # Imports base class and colors
-from four_in_a_row.src.color import BLACK, RED, WHITE
+from four_in_a_row.src.color import BLACK, RED, RED_DARK, WHITE, YELLOW, YELLOW_DARK
 from four_in_a_row.src.position import Position
 from four_in_a_row.src.grill import Grill
 
@@ -33,8 +33,16 @@ g = Grill(l_box, nb_lignes, nb_colonnes, p)
 
 # l = Letter(Position(125, 125), "1", 200, BLACK)
 
+
+
 # Run until the user asks to quit
-token = TokenFactory().create(1, l_box // 2, RED, BLACK, "B")
+token = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "B")
+token2 = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "U")
+token3 = TokenFactory().create(2, l_box // 2, YELLOW, YELLOW_DARK, "S")
+token4 = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "7")
+token5 = TokenFactory().create(2, l_box // 2, YELLOW, YELLOW_DARK, "8")
+token6 = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "B")
+token7 = TokenFactory().create(2, l_box // 2, YELLOW, YELLOW_DARK, "Y")
 
 running = True
 
@@ -61,11 +69,22 @@ while running:
 
     # set_position of tokens
     token.set_position(new_pos)
-    yellow_token.set_position(Position(l_box // 2, L_grill - (l_box // 2)))
+    token2.set_position(Position().get_position_token(0, 0, l_box, L_grill))
+    token3.set_position(Position().get_position_token(1, 0, l_box, L_grill))
+    token4.set_position(Position().get_position_token(2, 3, l_box, L_grill))
+    token5.set_position(Position().get_position_token(4, 6, l_box, L_grill))
+    token6.set_position(Position().get_position_token(5, 6, l_box, L_grill))
+    token7.set_position(Position().get_position_token(2, 2, l_box, L_grill))
+    yellow_token.set_position(Position().get_position_token(0, 6, l_box, L_grill))
 
     # blit_in tokens
     token.blit_in(screen)
-    yellow_token.blit_in(screen)
+    token2.blit_in(screen)
+    token3.blit_in(screen)
+    token4.blit_in(screen)
+    token5.blit_in(screen)
+    token6.blit_in(screen)
+    token7.blit_in(screen)
     g.blit_in(screen)
 
     # Update display-pygame
