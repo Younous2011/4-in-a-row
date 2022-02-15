@@ -11,8 +11,8 @@ class GrillToken:
         self.nb_lignes = nb_lignes
         self.nb_colonnes = nb_colonnes
         self.position = position
-        self.l_grill = self.side * self.nb_lignes
-        self.L_grill  = self.side * nb_colonnes
+        self.l_grill = self.side * self.nb_colonnes
+        self.L_grill  = self.side * nb_lignes
         self.surface = pygame.Surface((self.l_grill, self.L_grill))
         self.surface.set_colorkey(BLACK.get())
 
@@ -20,6 +20,6 @@ class GrillToken:
         screen.blit(self.surface, self.position.get_position())
 
     def add_token(self, token:Token, i:int, j:int):
-        p = Position().get_position_token(i, j, self.side, self.L_grill)
+        p = Position().get_position_token(i, j, self.side, self.l_grill)
         token.set_position(p)
         token.blit_in(self.surface)
