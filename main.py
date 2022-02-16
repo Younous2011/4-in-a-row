@@ -1,4 +1,5 @@
 # Imports base class and colors
+from turtle import position
 from four_in_a_row.src.color import BLACK, RED, RED_DARK, WHITE, YELLOW, YELLOW_DARK
 from four_in_a_row.src.position import Position
 from four_in_a_row.src.grill import Grill
@@ -39,6 +40,7 @@ game = Game(nb_lignes, nb_colonnes, None, None)
 
 token = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "E")
 
+i = 0
 
 running = True
 
@@ -51,7 +53,10 @@ while running:
         # handle MOUSEBUTTONUP
         if event.type == pygame.MOUSEBUTTONUP:
             print(f"Vous êtes sur la colonne {Position(x, 0).get_column(l_box)}")
-            gt.add_token(token, 0, Position(x, 0).get_column(l_box))
+            column = Position(x, 0).get_column(l_box)
+            row = game.get_next_row(column)
+            gt.add_token(token, row, column)
+            game.add_token(token, column)
 
         if event.type == pygame.QUIT:
             running = False
