@@ -1,5 +1,4 @@
 # Imports base class and colors
-from turtle import position
 from four_in_a_row.src.color import BLACK, RED, RED_DARK, WHITE, YELLOW, YELLOW_DARK
 from four_in_a_row.src.position import Position
 from four_in_a_row.src.grill import Grill
@@ -12,6 +11,7 @@ import pygame.gfxdraw
 pygame.init()
 
 # Import after init
+from four_in_a_row.src.player_factory import PlayerFactory
 from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 from four_in_a_row.src.token_factory import TokenFactory
 from four_in_a_row.src.grill_token import GrillToken
@@ -33,12 +33,12 @@ p = Position(0, l_box)
 g = Grill(l_box, nb_lignes, nb_colonnes, p)
 gt = GrillToken(l_box, nb_lignes, nb_colonnes, p)
 
-game = Game(nb_lignes, nb_colonnes, None, None)
+player1 = PlayerFactory().create("Younous", l_box // 2, RED, RED_DARK)
+player2 = PlayerFactory().create("Soufiane", l_box // 2, YELLOW, YELLOW_DARK)
 
+game = Game(nb_lignes, nb_colonnes, player1, player2, gt)
 
 # l = Letter(Position(125, 125), "1", 200, BLACK)
-
-token = TokenFactory().create(1, l_box // 2, RED, RED_DARK, "E")
 
 i = 0
 
@@ -52,27 +52,21 @@ while running:
     for event in pygame.event.get():
         # handle MOUSEBUTTONUP
         if event.type == pygame.MOUSEBUTTONUP:
-            print(f"Vous êtes sur la colonne {Position(x, 0).get_column(l_box)}")
-            column = Position(x, 0).get_column(l_box)
-            row = game.get_next_row(column)
-            gt.add_token(token, row, column)
-            game.add_token(token, column)
+            game.click(x)
 
         if event.type == pygame.QUIT:
             running = False
 
-
     # Fill the background with white
     screen.fill(WHITE.get())
     
-
     x, y = pygame.mouse.get_pos()
     new_pos = Position(x, l_box // 2)
 
     # set_position of tokens
     # blit_in tokens
-    token.set_position(new_pos)
-    token.blit_in(screen)
+    game.current_player.token.set_position(new_pos)
+    game.current_player.token.blit_in(screen)
     gt.blit_in(screen)
     g.blit_in(screen)
 
