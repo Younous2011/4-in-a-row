@@ -1,3 +1,4 @@
+from click import pass_context
 import numpy as np
 
 from .token import Token
@@ -40,3 +41,9 @@ class Game:
             self.grill_token.add_token(self.current_player.token, row, column)
             self.add_token(self.current_player.token, column)
             self.swipe_player()
+
+    def check_grill(self):
+        id = self.current_player.token.id
+        count_id = 0
+        for i in range(len(self.nb_lignes)):
+            pass

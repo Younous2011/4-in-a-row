@@ -1,7 +1,4 @@
-# Imports base class and colors
-from four_in_a_row.src.color import BLACK, RED, RED_DARK, WHITE, YELLOW, YELLOW_DARK
-from four_in_a_row.src.position import Position
-from four_in_a_row.src.grill import Grill
+
 
 # Import pygame
 import pygame
@@ -11,6 +8,10 @@ import pygame.gfxdraw
 pygame.init()
 
 # Import after init
+# Imports base class and colors
+from four_in_a_row.src.color import BLACK, RED, RED_DARK, WHITE, YELLOW, YELLOW_DARK
+from four_in_a_row.src.position import Position
+from four_in_a_row.src.grill import Grill
 from four_in_a_row.src.player_factory import PlayerFactory
 from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
 from four_in_a_row.src.token_factory import TokenFactory
