@@ -17,6 +17,7 @@ class Game:
         self.grill = np.zeros((nb_lignes, nb_colonnes), dtype=int)
         self.nb_token_column = np.zeros(nb_colonnes, dtype=int)
         self.n_rows = n_rows
+        self.end = False
 
     def add_token(self, token:Token, column:int):
         token_id = token.id
@@ -37,11 +38,12 @@ class Game:
     def click(self, x:int):
         column = Position(x, 0).get_column(self.grill_token.side)
         row = self.get_next_row(column)
-        if row < self.nb_lignes:
+        if row < self.nb_lignes and self.end == False:
             self.grill_token.add_token(self.current_player.token, row, column)
             self.add_token(self.current_player.token, column)
             print(f"full : {self.check_full()}")
             print(f"{self.current_player.name} a gagné {self.check_grill()} !")
+            self.end = self.check_grill()
             self.swipe_player()
 
     def check_grill(self):

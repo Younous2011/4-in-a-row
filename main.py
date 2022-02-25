@@ -1,5 +1,3 @@
-
-
 # Import pygame
 import pygame
 import pygame.gfxdraw

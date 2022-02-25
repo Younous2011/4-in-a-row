@@ -40,3 +40,283 @@ class TestGame(unittest.TestCase):
         ]
 
         self.assertTrue(g.check_grill())
+    
+    def test_check_grill_second_row(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+    
+    def test_check_grill_third_row(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_last_column(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+    
+    def test_check_grill_first_column(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_second_column(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_third_column(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_last_column(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_first_diagonale_left(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_second_diagonale_left(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_first_diagonale_right(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 1, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_grill_second_diagonale_right(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_false_grill_second_row(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertFalse(g.check_grill())
+
+    def test_check_false_grill_second_diagonale_right(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertFalse(g.check_grill())
+
+    def test_check_false_grill_first_diagonale_left(self):
+        g = Game(6, 7, None, None, None)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.assertFalse(g.check_grill())
+
+    def test_check_grill_first_row_change_n_row(self):
+        g = Game(3, 4, None, None, None, 2)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 0, 0, 0],
+            [1, 0, 0, 0],
+            [0, 0, 0, 0]
+        ]
+
+        self.assertTrue(g.check_grill())
+
+    def test_check_full_true(self):
+        g = Game(3, 4, None, None, None, 2)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 2, 1, 1],
+            [1, 1, 1, 2],
+            [2, 2, 2, 2]
+        ]
+
+        self.assertTrue(g.check_full())
+
+    def test_check_full_false(self):
+        g = Game(3, 4, None, None, None, 2)
+        token = RED_TOKEN
+        current_player = Player(None, token)
+        g.current_player = current_player
+
+        g.grill = [
+            [1, 2, 1, 1],
+            [1, 1, 0, 2],
+            [2, 2, 2, 2]
+        ]
+
+        self.assertFalse(g.check_full())
