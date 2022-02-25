@@ -29,10 +29,6 @@ class Token:
     
     def set_position(self, position:Position):
         self.position = position
-        """ self.circle1.set_position(position)
-        self.circle2.set_position(position)
-        self.letter.set_position(position) """
-
 
     def blit_in(self, screen:Surface):
         screen.blit(self.surface, self.position.get_top_left_position(self.circle1.radius))

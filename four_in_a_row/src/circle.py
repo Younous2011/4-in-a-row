@@ -5,10 +5,7 @@ from .color import Color
 import pygame.gfxdraw
 
 class Circle:
-    """
-        Cette class permet de définir et de manipuler un cercle
-    """
-
+    
     def __init__(self, radius:int, color:Color, position:Position):
         self.radius = radius
         self.color = color
