@@ -1,5 +1,6 @@
 import numpy as np
 
+from .grill import Grill
 from .token import Token
 from .player import Player
 from .position import Position
@@ -7,7 +8,7 @@ from .grill_token import GrillToken
 
 class Game:
 
-    def __init__(self, nb_lignes:int, nb_colonnes:int, player1:Player, player2:Player, grill_token:GrillToken, n_rows:int = 4):
+    def __init__(self, nb_lignes:int, nb_colonnes:int, player1:Player, player2:Player, grill_token:GrillToken, grill_box:Grill, n_rows:int = 4):
         self.nb_lignes = nb_lignes
         self.nb_colonnes = nb_colonnes
         self.player1 = player1
@@ -16,6 +17,7 @@ class Game:
         self.grill_token = grill_token
         self.grill = np.zeros((nb_lignes, nb_colonnes), dtype=int)
         self.nb_token_column = np.zeros(nb_colonnes, dtype=int)
+        self.grill_box = grill_box
         self.n_rows = n_rows
         self.end = False
 

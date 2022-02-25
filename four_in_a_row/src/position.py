@@ -26,5 +26,5 @@ class Position:
 
     def get_position_token(self, i:int, j:int, l_box:int, L_grill:int):
         x = l_box // 2 + l_box * j
-        y = L_grill - (l_box // 2) - l_box * i - l_box
+        y = L_grill - (l_box // 2) - l_box * i
         return Position(x, y)

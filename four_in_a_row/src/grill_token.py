@@ -20,6 +20,6 @@ class GrillToken:
         screen.blit(self.surface, self.position.get_position())
 
     def add_token(self, token:Token, i:int, j:int):
-        p = Position().get_position_token(i, j, self.side, self.l_grill)
+        p = Position().get_position_token(i, j, self.side, self.L_grill)
         token.set_position(p)
         token.blit_in(self.surface)
