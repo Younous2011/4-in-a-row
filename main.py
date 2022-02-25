@@ -14,7 +14,6 @@ from four_in_a_row.src.position import Position
 from four_in_a_row.src.grill import Grill
 from four_in_a_row.src.player_factory import PlayerFactory
 from four_in_a_row.src.token import YELLOW_TOKEN as yellow_token
-from four_in_a_row.src.token_factory import TokenFactory
 from four_in_a_row.src.grill_token import GrillToken
 from four_in_a_row.src.game import Game
 
