@@ -1,3 +1,6 @@
+from fnmatch import translate
+
+
 class Position:
     def __init__(self, x:int = 0, y:int = 0):
         self.x = x
@@ -21,8 +24,8 @@ class Position:
         top_y = self.y - radius
         return top_x, top_y
 
-    def get_column(self, side:int) -> int:
-        return self.x // side
+    def get_column(self, side:int, translation:int) -> int:
+        return self.x // side - translation
 
     def get_position_token(self, i:int, j:int, l_box:int, L_grill:int):
         x = l_box // 2 + l_box * j

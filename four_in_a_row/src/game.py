@@ -20,7 +20,7 @@ class Game:
             player1:Player, 
             player2:Player, 
             grill_token:GrillToken, 
-            grill_box:Grill, 
+            grill_box:Grill,
             menu:Menu,
             screen:Surface, 
             n_rows:int = 4
@@ -57,7 +57,7 @@ class Game:
             self.current_player = self.player1
 
     def click(self, x:int):
-        column = Position(x, 0).get_column(self.grill_token.side)
+        column = Position(x, 0).get_column(self.grill_token.side, self.grill_box.translation)
         row = self.get_next_row(column)
         if row < self.nb_lignes and self.end == False:
             self.grill_token.add_token(self.current_player.token, row, column)
