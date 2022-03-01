@@ -1,5 +1,10 @@
 import numpy as np
+from pygame import Surface
+import pygame
 
+from .menu import Menu
+
+from .color import WHITE
 from .grill import Grill
 from .token import Token
 from .player import Player
@@ -8,7 +13,19 @@ from .grill_token import GrillToken
 
 class Game:
 
-    def __init__(self, nb_lignes:int, nb_colonnes:int, player1:Player, player2:Player, grill_token:GrillToken, grill_box:Grill, n_rows:int = 4):
+    def __init__(
+            self, 
+            nb_lignes:int, 
+            nb_colonnes:int, 
+            player1:Player, 
+            player2:Player, 
+            grill_token:GrillToken, 
+            grill_box:Grill, 
+            menu:Menu,
+            screen:Surface, 
+            n_rows:int = 4
+        ):
+
         self.nb_lignes = nb_lignes
         self.nb_colonnes = nb_colonnes
         self.player1 = player1
@@ -18,6 +35,8 @@ class Game:
         self.grill = np.zeros((nb_lignes, nb_colonnes), dtype=int)
         self.nb_token_column = np.zeros(nb_colonnes, dtype=int)
         self.grill_box = grill_box
+        self.menu = menu
+        self.screen = screen
         self.n_rows = n_rows
         self.end = False
 
@@ -132,3 +151,16 @@ class Game:
                     full = False
 
         return full
+
+    def update(self):
+        self.screen.fill(WHITE.get())
+        self.menu.update()
+        self.menu.blit_in(self.screen)
+        x, y = pygame.mouse.get_pos()
+        x = max(x, self.grill_box.translation * self.grill_box.side + self.grill_box.side // 2)
+        x = min(x, self.grill_box.side * self.nb_colonnes + self.grill_box.translation * self.grill_box.side - self.grill_box.side // 2)
+        new_pos = Position(x, self.grill_token.side // 2)
+        self.current_player.token.set_position(new_pos)
+        self.current_player.token.blit_in(self.screen)
+        self.grill_token.blit_in(self.screen)
+        self.grill_box.blit_in(self.screen)

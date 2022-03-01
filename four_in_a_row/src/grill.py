@@ -1,4 +1,5 @@
-from four_in_a_row.src.color import BLACK
+
+from .color import BLACK
 from .position import Position
 from .square_factory import SquareFactory
 
@@ -6,11 +7,12 @@ from pygame import Surface
 import pygame
 
 class Grill:
-    def __init__(self, side:int, nb_lignes:int, nb_colonnes:int, position:Position):
+    def __init__(self, side:int, nb_lignes:int, nb_colonnes:int, position:Position, translation:int):
         self.side = side
         self.nb_lignes = nb_lignes
         self.nb_colonnes = nb_colonnes
         self.position = position
+        self.translation = translation
         self.ls = []
         for j in range(nb_lignes):
             for i in range(nb_colonnes):
