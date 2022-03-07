@@ -3,7 +3,7 @@ from .color import Color
 from .player import Player
 
 class PlayerFactory:
-
+    
     current_id = 1
 
     def __init__(self):

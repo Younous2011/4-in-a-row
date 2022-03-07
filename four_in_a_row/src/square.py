@@ -1,5 +1,5 @@
-from four_in_a_row.src.circle import Circle
-from four_in_a_row.src.color import BLUE, BLACK
+from .circle import Circle
+from .color import BLUE, BLACK
 from .position import Position
 
 from pygame import Surface

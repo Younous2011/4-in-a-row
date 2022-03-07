@@ -1,10 +1,10 @@
 
+from pygame import Surface
+import pygame
+
 from .color import BLACK
 from .position import Position
 from .square_factory import SquareFactory
-
-from pygame import Surface
-import pygame
 
 class Grill:
     def __init__(self, side:int, nb_lignes:int, nb_colonnes:int, position:Position, translation:int):

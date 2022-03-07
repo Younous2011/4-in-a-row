@@ -1,5 +1,5 @@
 # Import local Class
-from .color import RED, RED_DARK, YELLOW, YELLOW_DARK, BLACK
+from .color import *
 from .position import Position
 from .circle import Circle
 from .letter import Letter
@@ -35,8 +35,6 @@ class Token:
 
 
 RED_RAYON = 60
-
-
 
 RED_POSITION = Position(RED_RAYON, RED_RAYON)
 RED_LARGE_CIRCLE = Circle(RED_RAYON, RED, RED_POSITION)

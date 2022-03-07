@@ -1,9 +1,9 @@
 from .color import Color
 from .position import Position
-from pygame.surface import Surface
 
 # Import pygame
 import pygame
+from pygame.surface import Surface
 
 class Letter:
     def __init__(self, position:Position, letter:str, size:int, color:Color, alpha:int = 255, font_str:str = None):

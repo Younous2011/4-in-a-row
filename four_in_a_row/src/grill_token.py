@@ -1,9 +1,9 @@
+import pygame
+from pygame import Surface
+
 from .token import Token
 from .position import Position
 from .color import BLACK
-
-import pygame
-from pygame import Surface
 
 class GrillToken:
     def __init__(self, side:int, nb_lignes:int, nb_colonnes:int, position:Position):
