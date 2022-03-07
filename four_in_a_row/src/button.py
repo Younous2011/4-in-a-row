@@ -43,6 +43,5 @@ class Button:
 
     def click(self):
         x, y = pygame.mouse.get_pos()
-        print(x, y, self.rect.collidepoint(x, y))
         if self.rect.collidepoint(x, y):
-            print("clicked")
+            return "restart"

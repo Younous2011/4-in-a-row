@@ -3,7 +3,7 @@ from pygame import Surface
 
 from .token import Token
 from .position import Position
-from .color import BLACK
+from .color import BLACK, WHITE
 
 class GrillToken:
     def __init__(self, side:int, nb_lignes:int, nb_colonnes:int, position:Position):
@@ -23,3 +23,6 @@ class GrillToken:
         p = Position().get_position_token(i, j, self.side, self.L_grill)
         token.set_position(p)
         token.blit_in(self.surface)
+
+    def restart(self):
+        self.surface.fill(WHITE.get())

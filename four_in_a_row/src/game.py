@@ -22,13 +22,18 @@ class Game:
             grill_box:Grill,
             menu:Menu,
             screen:Surface, 
-            n_rows:int = 4
+            n_rows:int = 4,
+            n_set:int = 3
         ):
 
         self.nb_lignes = nb_lignes
         self.nb_colonnes = nb_colonnes
         self.player1 = player1
         self.player2 = player2
+        self.game_count_won = {
+            self.player1.token.id: 0,
+            self.player2.token.id: 0
+        }
         self.current_player = player1
         self.grill_token = grill_token
         self.grill = np.zeros((nb_lignes, nb_colonnes), dtype=int)
@@ -36,6 +41,7 @@ class Game:
         self.grill_box = grill_box
         self.menu = menu
         self.screen = screen
+        self.n_set = n_set
         self.n_rows = n_rows
         self.end = False
 
@@ -61,11 +67,19 @@ class Game:
         if row < self.nb_lignes and self.end == False and column >= 0:
             self.grill_token.add_token(self.current_player.token, row, column)
             self.add_token(self.current_player.token, column)
-            print(f"full : {self.check_full()}")
-            print(f"{self.current_player.name} a gagné {self.check_grill()} !")
             self.end = self.check_grill()
+            if self.end:
+                self.game_count_won[self.current_player.token.id] += 1
+                self.menu.score_player1.update(f"{self.player1.name} : {self.game_count_won[self.player1.token.id]}")
+                self.menu.score_player2.update(f"{self.player2.name} : {self.game_count_won[self.player2.token.id]}")
+
+            if self.game_count_won[self.current_player.token.id] == self.n_set:
+                print(f"{self.current_player.name} a gagné !")
             self.swipe_player()
-        self.menu.click()
+
+        action = self.menu.click()
+        if action == "restart":
+            self.restart()
 
     def check_grill(self):
         b = self.check_rows() or self.check_columns() or self.check_diagonales_left() or self.check_diagonales_right()
@@ -164,3 +178,9 @@ class Game:
         self.current_player.token.blit_in(self.screen)
         self.grill_token.blit_in(self.screen)
         self.grill_box.blit_in(self.screen)
+
+    def restart(self):
+        self.end = False
+        self.grill_token.restart()
+        self.grill = np.zeros((self.nb_lignes, self.nb_colonnes), dtype=int)
+        self.nb_token_column = np.zeros(self.nb_colonnes, dtype=int)
