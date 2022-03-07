@@ -32,3 +32,5 @@ BLACK = Color(0, 0, 0)
 
 WHITE = Color(255, 255, 255)
 WHITE_ALPHA = Color(255, 255, 255, 50)
+
+BOX_BUTTON = Color(226, 151, 60)

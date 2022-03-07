@@ -1,8 +1,8 @@
 from pygame import Surface
+import pygame.gfxdraw
+
 from .position import Position
 from .color import Color
-
-import pygame.gfxdraw
 
 class Circle:
     

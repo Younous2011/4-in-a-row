@@ -6,7 +6,6 @@ from .grill_token import GrillToken
 from .player_factory import PlayerFactory
 from .game import Game
 from .menu import Menu
-
 from .color import *
 
 class GameFactory:
