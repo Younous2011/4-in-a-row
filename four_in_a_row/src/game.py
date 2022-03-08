@@ -2,6 +2,8 @@ import numpy as np
 from pygame import Surface
 import pygame
 
+from four_in_a_row.src.alert import Alert
+
 from .menu import Menu
 from .color import WHITE
 from .grill import Grill
@@ -44,6 +46,7 @@ class Game:
         self.n_set = n_set
         self.n_rows = n_rows
         self.end = False
+        self.alert = None
 
     def add_token(self, token:Token, column:int):
         token_id = token.id
@@ -75,6 +78,7 @@ class Game:
 
             if self.game_count_won[self.current_player.token.id] == self.n_set:
                 print(f"{self.current_player.name} a gagné !")
+                self.alert = Alert(self.grill_box.side, 3, 1, f"{self.current_player.name} a gagné !")
             self.swipe_player()
 
         action = self.menu.click()
@@ -178,6 +182,8 @@ class Game:
         self.current_player.token.blit_in(self.screen)
         self.grill_token.blit_in(self.screen)
         self.grill_box.blit_in(self.screen)
+        if self.alert:
+            self.alert.blit_in(self.screen)
 
     def restart(self):
         self.end = False
