@@ -16,7 +16,7 @@ class Alert:
         self.alert = TextBox(Position(0, 0), self.message, 100, WHITE, Color(255, 194, 133), (200, 100))
 
     def blit_in(self, screen:Surface):
-        position = Position(0, 0)
+        position = Position(50, 50)
         screen.blit(self.surface, position.get_position())
 
     def click(self):

@@ -2,8 +2,7 @@ import numpy as np
 from pygame import Surface
 import pygame
 
-from four_in_a_row.src.alert import Alert
-
+from .alert import Alert
 from .menu import Menu
 from .color import WHITE
 from .grill import Grill
@@ -25,7 +24,7 @@ class Game:
             menu:Menu,
             screen:Surface, 
             n_rows:int = 4,
-            n_set:int = 3
+            n_set:int = 1
         ):
 
         self.nb_lignes = nb_lignes
