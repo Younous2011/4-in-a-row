@@ -13,7 +13,7 @@ class GameFactory:
     def __init__(self):
         pass
 
-    def create(self, conf:Conf, name_player1:str, name_player2:str):
+    def create(self, conf:Conf, name_player1:str, name_player2:str) -> Game:
         translation = 3
         p = Position(translation * conf.side, conf.side)
         g = Grill(conf.side, conf.nb_rows, conf.nb_columns, p, translation)
