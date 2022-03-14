@@ -1,5 +1,6 @@
 # Import pygame
 import pygame
+from four_in_a_row.src.conf import Conf
 
 # Init pygame
 pygame.init()
@@ -7,13 +8,13 @@ pygame.init()
 # Import after init
 from four_in_a_row.src.game_factory import GameFactory
 
-
 # Create all variables
 nb_lignes = 5
 nb_colonnes = 8
 side = 120
 
-game = GameFactory().create(side, nb_lignes, nb_colonnes, "Hamza", "Younous")
+conf = Conf()
+game = GameFactory().create(conf, "Hamza", "Younous")
 
 running = True
 while running:
