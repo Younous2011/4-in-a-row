@@ -45,4 +45,4 @@ class TextInterface:
 
     def update(self, text:str):
         self.text = text
-        self.make
+        self.make()

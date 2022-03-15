@@ -2,6 +2,7 @@ import numpy as np
 from pygame import Surface
 import pygame
 
+from .conf import Conf
 from .alert import Alert
 from .menu import Menu
 from .color import BLACK, MENU_COLOR, WHITE
@@ -14,21 +15,18 @@ from .grill_token import GrillToken
 class Game:
 
     def __init__(
-            self, 
-            nb_lignes:int, 
-            nb_colonnes:int, 
+            self,
+            conf:Conf,
             player1:Player, 
             player2:Player, 
             grill_token:GrillToken, 
             grill_box:Grill,
             menu:Menu,
-            screen:Surface, 
-            n_rows:int = 4,
-            n_set:int = 3
+            screen:Surface
         ):
 
-        self.nb_lignes = nb_lignes
-        self.nb_colonnes = nb_colonnes
+        self.nb_lignes = conf.nb_rows
+        self.nb_colonnes = conf.nb_columns
         self.player1 = player1
         self.player2 = player2
         self.game_count_won = {
@@ -37,13 +35,13 @@ class Game:
         }
         self.current_player = player1
         self.grill_token = grill_token
-        self.grill = np.zeros((nb_lignes, nb_colonnes), dtype=int)
-        self.nb_token_column = np.zeros(nb_colonnes, dtype=int)
+        self.grill = np.zeros((self.nb_lignes, self.nb_colonnes), dtype=int)
+        self.nb_token_column = np.zeros(self.nb_colonnes, dtype=int)
         self.grill_box = grill_box
         self.menu = menu
         self.screen = screen
-        self.n_set = n_set
-        self.n_rows = n_rows
+        self.n_set = conf.n_set
+        self.n_rows = conf.n_rows_in_a_row
         self.end = False
         self.alert = None
 

@@ -22,6 +22,6 @@ class GameFactory:
         player2 = PlayerFactory().create(name_player2, conf.side // 2, YELLOW, YELLOW_DARK)
         screen = pygame.display.set_mode([conf.nb_columns * conf.side + translation * conf.side, conf.nb_rows * conf.side + conf.side])
         menu = Menu(conf.side, translation, conf.nb_rows + 1, name_player1, name_player2)
-        game = Game(conf.nb_rows, conf.nb_columns, player1, player2, gt, g, menu, screen)
+        game = Game(conf, player1, player2, gt, g, menu, screen)
 
         return game
