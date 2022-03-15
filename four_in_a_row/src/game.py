@@ -4,7 +4,7 @@ import pygame
 
 from .alert import Alert
 from .menu import Menu
-from .color import WHITE
+from .color import BLACK, MENU_COLOR, WHITE
 from .grill import Grill
 from .token import Token
 from .player import Player
@@ -24,7 +24,7 @@ class Game:
             menu:Menu,
             screen:Surface, 
             n_rows:int = 4,
-            n_set:int = 1
+            n_set:int = 3
         ):
 
         self.nb_lignes = nb_lignes
@@ -77,7 +77,7 @@ class Game:
 
             if self.game_count_won[self.current_player.token.id] == self.n_set:
                 print(f"{self.current_player.name} a gagné !")
-                self.alert = Alert(self.grill_box.side, 3, 1, f"{self.current_player.name} a gagné !")
+                self.alert = Alert(Position(520, 360), f"{self.current_player.name} a gagné !", 60, WHITE, MENU_COLOR, self.grill_box.side, 3, 1)
             self.swipe_player()
 
         action = self.menu.click()

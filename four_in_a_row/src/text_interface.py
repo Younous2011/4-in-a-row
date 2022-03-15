@@ -39,3 +39,10 @@ class TextInterface:
 
     def click(self):
         print("text interface clicked")
+
+    def blit_in(self, screen:Surface):
+        screen.blit(self.surface, (self.position.x, self.position.y))
+
+    def update(self, text:str):
+        self.text = text
+        self.make

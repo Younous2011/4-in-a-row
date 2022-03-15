@@ -2,7 +2,7 @@ import pygame
 from pygame import Surface
 
 from .text_box import TextBox
-from .color import WHITE, Color
+from .color import MENU_COLOR, WHITE, Color
 from .button import Button
 from .position import Position
 
@@ -27,7 +27,7 @@ class Menu:
         return action
 
     def update(self):
-        self.surface.fill((255, 194, 133))
+        self.surface.fill(MENU_COLOR.get())
         self.button.blit_in(self.surface)
         self.score_player1.blit_in(self.surface)
         self.score_player2.blit_in(self.surface)

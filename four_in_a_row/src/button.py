@@ -1,6 +1,4 @@
-from typing import overload
 import pygame
-from pygame import Surface
 
 from .text_interface import TextInterface
 from .position import Position
@@ -19,9 +17,6 @@ class Button(TextInterface):
         font_str:str = None
     ):
         super().__init__(position, text, size, color, background_color, rect_dim, alpha, font_str)
-
-    def blit_in(self, screen:Surface):
-        screen.blit(self.surface, (self.position.x, self.position.y))
     
     def click(self):
         x, y = pygame.mouse.get_pos()
