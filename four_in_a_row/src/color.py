@@ -35,3 +35,5 @@ WHITE_ALPHA = Color(255, 255, 255, 50)
 
 BOX_BUTTON = Color(226, 151, 60)
 MENU_COLOR = Color(255, 194, 133)
+
+GREY = Color(205, 203, 203)

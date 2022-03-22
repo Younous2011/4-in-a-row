@@ -16,7 +16,7 @@ class TextInterface:
         alpha:int = 255, 
         font_str:str = None
     ):
-        self.text = text
+        self.text_str = text
         self.size = size
         self.color = color
         self.background_color = bacground_color
@@ -30,11 +30,11 @@ class TextInterface:
         self.surface = pygame.Surface(self.rect_dim)
         self.surface.fill(self.background_color.get())
         self.font = pygame.font.Font(self.font_str, self.size)
-        self.text = self.font.render(self.text, True, self.color.get(), None)
-        self.text.set_alpha(self.alpha)
-        self.textRect = self.text.get_rect()
+        self.text_rdr = self.font.render(self.text_str, True, self.color.get(), None)
+        self.text_rdr.set_alpha(self.alpha)
+        self.textRect = self.text_rdr.get_rect()
         self.textRect.center = self.position.get_position()
-        self.surface.blit(self.text, (0, 0))
+        self.surface.blit(self.text_rdr, (0, 0))
         self.rect = pygame.Rect(self.position.x, self.position.y, self.rect_dim[0], self.rect_dim[1])
 
     def click(self):
@@ -44,5 +44,5 @@ class TextInterface:
         screen.blit(self.surface, (self.position.x, self.position.y))
 
     def update(self, text:str):
-        self.text = text
+        self.text_str = text
         self.make()

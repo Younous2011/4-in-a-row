@@ -30,16 +30,16 @@ class TextInput(TextInterface):
                 else:
                     self.active = False
 
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN and self.active:
                 # Check for backspace
                 if event.key == pygame.K_BACKSPACE:
     
                     # get text input from 0 to -1 i.e. end.
-                    self.text = self.text[:-1]
+                    self.text_str = self.text_str[:-1]
     
                 # Unicode standard is used for string
                 # formation
                 else:
-                    self.text += event.unicode
+                    self.text_str += event.unicode
         
-        self.make()
+                self.make()
