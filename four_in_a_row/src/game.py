@@ -5,7 +5,7 @@ import pygame
 from .conf import Conf
 from .alert import Alert
 from .menu import Menu
-from .color import BLACK, MENU_COLOR, WHITE
+from .color import MENU_COLOR, WHITE
 from .grill import Grill
 from .token import Token
 from .player import Player
