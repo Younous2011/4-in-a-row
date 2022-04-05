@@ -2,14 +2,18 @@ FROM ubuntu
 
 WORKDIR /usr/src/app
 
+ENV TZ=Europe/Paris
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update && apt-get install -y \
     python3-dev -y \ 
     python3-setuptools -y \ 
-    python3-numpy -y \ 
-    python3-opengl -y  \ 
-    libsdl-imagy \ 
-    libsdl-mixer1.2-dev -y
-RUN apt-get install -y \
+    python3-numpy -y \
+    python3-opengl -y \
+    python3-pip \
+    libsdl-image1.2-dev -y \
+    libsdl-mixer1.2-dev -y \
     libsdl-ttf2.0-dev -y \ 
     libsmpeg-dev -y \ 
     libsdl1.2-dev -y \ 
@@ -34,4 +38,4 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 
-CMD ["python", "main.py"]
+CMD ["python3", "main.py"]
