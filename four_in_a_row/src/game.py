@@ -91,6 +91,7 @@ class Game:
         grill = self.grill
         j = 0
         count_id = 0
+        print(self.nb_lignes, self.nb_colonnes)
         while j < self.nb_lignes and count_id < self.n_rows:
             i = 0
             while i < self.nb_colonnes and count_id < self.n_rows:
@@ -99,6 +100,7 @@ class Game:
                 else:
                     count_id = 0
                 
+                print(j, i, count_id)
                 i+=1
             j+=1
         return count_id == self.n_rows
@@ -187,3 +189,11 @@ class Game:
         self.grill_token.restart()
         self.grill = np.zeros((self.nb_lignes, self.nb_colonnes), dtype=int)
         self.nb_token_column = np.zeros(self.nb_colonnes, dtype=int)
+        if self.alert is not None:
+            self.alert = None
+            self.game_count_won = {
+                self.player1.token.id: 0,
+                self.player2.token.id: 0
+            }
+            self.menu.score_player1.update(f"{self.player1.name} : {self.game_count_won[self.player1.token.id]}")
+            self.menu.score_player2.update(f"{self.player2.name} : {self.game_count_won[self.player2.token.id]}")

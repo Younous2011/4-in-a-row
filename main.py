@@ -5,6 +5,27 @@ from four_in_a_row.src.conf import Conf
 # Init pygame
 pygame.init()
 
+import os
+
+drivers = ['x11', 'directfb', 'fbcon', 'svgalib']
+
+found = False
+for driver in drivers:
+    if not os.getenv('SDL_VIDEODRIVER'):
+        os.environ['SDL_VIDEODRIVER'] = driver
+    try:
+        pygame.display.init()
+    except pygame.error:
+        print('Driver: {0} failed.'.format(driver))
+        continue
+    found = True
+    break
+
+if not found:
+   raise Exception('No suitable video driver found!')
+   
+
+
 # Import after init
 from four_in_a_row.src.game_factory import GameFactory
 
