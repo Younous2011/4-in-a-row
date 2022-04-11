@@ -296,12 +296,12 @@ class TestGame(unittest.TestCase):
             [2, 2, 0, 0, 0, 0, 0, 0],
             [2, 1, 0, 0, 0, 0, 0, 0]
         ]
-        print("errrrrror")
+        
         print(g.check_rows())
         self.assertFalse(g.check_grill())
 
     def test_check_grill_first_row_change_n_row(self):
-        conf = Conf(3, 4)
+        conf = Conf(3, 4, 120, 2)
         player1 = Player(None, RED_TOKEN)
         player2 = Player(None, YELLOW_TOKEN)
         g = Game(conf, player1, player2, None, None, None, None)

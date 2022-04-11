@@ -94,6 +94,7 @@ class Game:
         print(self.nb_lignes, self.nb_colonnes)
         while j < self.nb_lignes and count_id < self.n_rows:
             i = 0
+            count_id = 0
             while i < self.nb_colonnes and count_id < self.n_rows:
                 if grill[j][i] == id:
                     count_id += 1
